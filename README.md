@@ -19,3 +19,28 @@ _printf("Hello, world!\n");
 
 The _printf() function returns the number of characters that were printed to stdout.
 
+Format Specifiers
+
+The following table shows the most common format specifiers that are used with _printf():
+
+Format Specifier    Description
+
+%%    Prints a percent sign (%).
+%c    Prints a single character.
+%s    Prints a string.
+%d    Prints an integer in decimal format.
+%i    Prints an integer in decimal format.
+%u    Prints an integer in unsigned decimal format.
+%o    Prints an integer in octal format.
+%x    Prints an integer in hexadecimal format (lowercase).
+%X    Prints an integer in hexadecimal format (uppercase).
+
+
+Authors:
+
+https://github.com/picassoiam 
+
+https://github.com/vvr0n
+
+Message @picassoiam
+
