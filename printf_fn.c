@@ -47,3 +47,54 @@ int _printf(char *format, ...)
   va_end(arg);
   return ((int) count);
 }
+
+/**
+ * _printf_ext_1 - prints
+ * @val: the variable list
+ * @ch: character of the format idx
+ * @p_i: pointer to i
+ * Return: an int
+ */
+int _printf_ext_1(va_list val, char ch, unsigned int *p_i)
+{
+  unsigned int *p_i_count = p_i;
+  int count = 0, tempNum;
+  char *strTemp;
+
+  switch (ch)
+  {
+    case 'z':
+      count += print_c('%');
+      *p_i_count = *p_i_count + 1;
+      break;
+    case 's':
+      strTemp = va_arg(val, char *);
+      if (strTemp == NULL)
+        count += print_str("(null)");
+      else
+        count += print_str(strTemp);
+      *p_i_count = *p_i_count + 1;
+      break;
+    case 'r':
+      strTemp = va_arg(val, char *);
+      if (strTemp == NULL)
+        count += print_str("(null)");
+      else
+        count += print_revs(strTemp);
+      *p_i_count = *p_i_count + 1;
+      break;
+    case 'd':
+    case 'i':
+      tempNum = va_arg(val, int);
+      print_di(tempNum);
+      count += int_counter(tempNum);
+      *p_i_count = *p_i_count + 1;
+      break;
+    default:
+      count += print_c('%');
+      count += print_c(ch);
+      *p_i_count = *p_i_count + 1;
+  }
+  return (count);
+}
+
